@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Saira_Condensed-Bold.ttf</string>
+		<string>Saira_Condensed-Medium.ttf</string>
+		<string>Saira_ExtraCondensed-BlackItalic.ttf</string>
+		<string>Saira_ExtraCondensed-BoldItalic.ttf</string>
+		<string>Saira_ExtraCondensed-ExtraBoldItalic.ttf</string>
+		<string>Saira_ExtraCondensed-Italic.ttf</string>
+		<string>Saira_ExtraCondensed-Regular.ttf</string>
+		<string>Saira_ExtraCondensed-SemiBoldItalic.ttf</string>
+	</array>
+</dict>
+</plist>
