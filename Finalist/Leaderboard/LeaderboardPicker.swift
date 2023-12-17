@@ -13,7 +13,7 @@ struct LeaderboardSelection: View {
             Text("CB2")
                 .onTapGesture { selection = "CB2" }
                 .font(selection == "CB2" ? selectedFont : normalFont)
-            Text("OB2")
+            Text("OB")
                 .onTapGesture { selection = "OB" }
                 .font(selection == "OB" ? selectedFont : normalFont)
             Text("S1 [LIVE]")
