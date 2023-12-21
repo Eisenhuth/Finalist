@@ -38,7 +38,7 @@ struct SearchBar: View {
                 Button(action: {
                     self.isEditing = false
                     self.searchText = ""
-                    
+                    dismissKeyboard()
                 }) {
                     Text("Cancel")
                         .font(.finalsButtonEmphasis())
@@ -50,6 +50,10 @@ struct SearchBar: View {
                 .backgroundStyle(.finalsWhite)
             }
         }
+    }
+    
+    func dismissKeyboard(){
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 
