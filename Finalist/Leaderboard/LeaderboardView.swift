@@ -1,10 +1,10 @@
 import SwiftUI
-import YASU
+import Ospuze
 
 struct LeaderboardView: View {
     
     @State private var leaderboard: [LeaderboardEntry]?
-    @State private var selection = "S1"
+    @State private var selection: Leaderboards.identifiers = .LiveCrossplay
     @State private var searchText = ""
     
     var body: some View {
@@ -88,8 +88,7 @@ struct LeaderboardView: View {
     
     func loadLeaderboard(){
         Task{
-            let leaderboardUrl = URL(string: Leaderboards.getLeaderboard(selection))!
-            leaderboard = await loadData(leaderboardUrl)
+            leaderboard = await Leaderboards.getLeaderboard(selection)
         }
     }
 }

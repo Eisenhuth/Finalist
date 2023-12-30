@@ -21,11 +21,11 @@
 		0B1B5C0E2B2C87BD00223B56 /* Saira_ExtraCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B1B5BFD2B2C856F00223B56 /* Saira_ExtraCondensed-Regular.ttf */; };
 		0B1B5C112B2D15A200223B56 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1B5C102B2D15A200223B56 /* FontExtension.swift */; };
 		0B1B5C152B2E07A200223B56 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1B5C142B2E07A200223B56 /* LeaderboardView.swift */; };
-		0B1B5C172B2E085F00223B56 /* LeaderboardEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1B5C162B2E085F00223B56 /* LeaderboardEntry.swift */; };
-		0B1B5C1A2B2E09E300223B56 /* YASU in Frameworks */ = {isa = PBXBuildFile; productRef = 0B1B5C192B2E09E300223B56 /* YASU */; };
 		0B1B5C1E2B2E425400223B56 /* LeaderboardPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1B5C1D2B2E425400223B56 /* LeaderboardPicker.swift */; };
 		0B1B5C202B2E528900223B56 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1B5C1F2B2E528900223B56 /* SearchBar.swift */; };
-		0B1B5C222B2F168800223B56 /* Leaderboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1B5C212B2F168800223B56 /* Leaderboards.swift */; };
+		0B609AF72B3BFAE000EE92A2 /* Ospuze in Frameworks */ = {isa = PBXBuildFile; productRef = 0B609AF62B3BFAE000EE92A2 /* Ospuze */; };
+		0B609AFA2B3BFB1400EE92A2 /* Ospuze in Frameworks */ = {isa = PBXBuildFile; productRef = 0B609AF92B3BFB1400EE92A2 /* Ospuze */; };
+		0BF28F112B40AAFE00EBD04A /* Ospuze in Frameworks */ = {isa = PBXBuildFile; productRef = 0BF28F102B40AAFE00EBD04A /* Ospuze */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,10 +45,8 @@
 		0B1B5C062B2C86A100223B56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0B1B5C102B2D15A200223B56 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		0B1B5C142B2E07A200223B56 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
-		0B1B5C162B2E085F00223B56 /* LeaderboardEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardEntry.swift; sourceTree = "<group>"; };
 		0B1B5C1D2B2E425400223B56 /* LeaderboardPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardPicker.swift; sourceTree = "<group>"; };
 		0B1B5C1F2B2E528900223B56 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
-		0B1B5C212B2F168800223B56 /* Leaderboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboards.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +54,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B1B5C1A2B2E09E300223B56 /* YASU in Frameworks */,
+				0B609AFA2B3BFB1400EE92A2 /* Ospuze in Frameworks */,
+				0BF28F112B40AAFE00EBD04A /* Ospuze in Frameworks */,
+				0B609AF72B3BFAE000EE92A2 /* Ospuze in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,10 +120,8 @@
 		0B1B5C232B2F2A7100223B56 /* Leaderboard */ = {
 			isa = PBXGroup;
 			children = (
-				0B1B5C162B2E085F00223B56 /* LeaderboardEntry.swift */,
 				0B1B5C1D2B2E425400223B56 /* LeaderboardPicker.swift */,
 				0B1B5C142B2E07A200223B56 /* LeaderboardView.swift */,
-				0B1B5C212B2F168800223B56 /* Leaderboards.swift */,
 				0B1B5C1F2B2E528900223B56 /* SearchBar.swift */,
 			);
 			path = Leaderboard;
@@ -146,7 +144,9 @@
 			);
 			name = Finalist;
 			packageProductDependencies = (
-				0B1B5C192B2E09E300223B56 /* YASU */,
+				0B609AF62B3BFAE000EE92A2 /* Ospuze */,
+				0B609AF92B3BFB1400EE92A2 /* Ospuze */,
+				0BF28F102B40AAFE00EBD04A /* Ospuze */,
 			);
 			productName = Finalist;
 			productReference = 0B1B5BEC2B2C7A4B00223B56 /* Finalist.app */;
@@ -177,7 +177,7 @@
 			);
 			mainGroup = 0B1B5BE32B2C7A4B00223B56;
 			packageReferences = (
-				0B1B5C182B2E09E300223B56 /* XCRemoteSwiftPackageReference "yasu" */,
+				0BF28F0F2B40AAFE00EBD04A /* XCRemoteSwiftPackageReference "Ospuze" */,
 			);
 			productRefGroup = 0B1B5BED2B2C7A4B00223B56 /* Products */;
 			projectDirPath = "";
@@ -213,9 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B1B5C222B2F168800223B56 /* Leaderboards.swift in Sources */,
 				0B1B5C152B2E07A200223B56 /* LeaderboardView.swift in Sources */,
-				0B1B5C172B2E085F00223B56 /* LeaderboardEntry.swift in Sources */,
 				0B1B5C112B2D15A200223B56 /* FontExtension.swift in Sources */,
 				0B1B5C1E2B2E425400223B56 /* LeaderboardPicker.swift in Sources */,
 				0B1B5C202B2E528900223B56 /* SearchBar.swift in Sources */,
@@ -434,9 +432,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0B1B5C182B2E09E300223B56 /* XCRemoteSwiftPackageReference "yasu" */ = {
+		0BF28F0F2B40AAFE00EBD04A /* XCRemoteSwiftPackageReference "Ospuze" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/eisenhuth/yasu.git";
+			repositoryURL = "https://github.com/Eisenhuth/Ospuze";
 			requirement = {
 				branch = master;
 				kind = branch;
@@ -445,10 +443,18 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0B1B5C192B2E09E300223B56 /* YASU */ = {
+		0B609AF62B3BFAE000EE92A2 /* Ospuze */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0B1B5C182B2E09E300223B56 /* XCRemoteSwiftPackageReference "yasu" */;
-			productName = YASU;
+			productName = Ospuze;
+		};
+		0B609AF92B3BFB1400EE92A2 /* Ospuze */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Ospuze;
+		};
+		0BF28F102B40AAFE00EBD04A /* Ospuze */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BF28F0F2B40AAFE00EBD04A /* XCRemoteSwiftPackageReference "Ospuze" */;
+			productName = Ospuze;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1,29 +1,30 @@
 import SwiftUI
+import Ospuze
 
 struct LeaderboardSelection: View {
-    @Binding var selection: String
+    @Binding var selection: Leaderboards.identifiers
     let selectedFont: Font = .finalsButtonEmphasis(35)
     let normalFont: Font = .finalsButton(30)
     
     var body: some View {
         HStack{
             Text("CB1")
-                .onTapGesture { selection = "CB1" }
-                .font(selection == "CB1" ? selectedFont : normalFont)
+                .onTapGesture { selection = .ClosedBeta1 }
+                .font(selection == .ClosedBeta1 ? selectedFont : normalFont)
             Text("CB2")
-                .onTapGesture { selection = "CB2" }
-                .font(selection == "CB2" ? selectedFont : normalFont)
+                .onTapGesture { selection = .ClosedBeta2 }
+                .font(selection == .ClosedBeta2 ? selectedFont : normalFont)
             Text("OB")
-                .onTapGesture { selection = "OB" }
-                .font(selection == "OB" ? selectedFont : normalFont)
+                .onTapGesture { selection = .OpenBeta }
+                .font(selection == .OpenBeta ? selectedFont : normalFont)
             Text("S1 [LIVE]")
-                .onTapGesture { selection = "S1" }
-                .font(selection == "S1" ? selectedFont : normalFont)
+                .onTapGesture { selection = .LiveCrossplay }
+                .font(selection == .LiveCrossplay ? selectedFont : normalFont)
 
         }
     }
 }
 
 #Preview {
-    LeaderboardSelection(selection: .constant("S1"))
+    LeaderboardSelection(selection: .constant(.LiveCrossplay))
 }

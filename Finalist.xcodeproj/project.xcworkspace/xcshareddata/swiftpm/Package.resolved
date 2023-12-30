@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "ospuze",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Eisenhuth/Ospuze",
+      "state" : {
+        "branch" : "master",
+        "revision" : "6e5b8dbdda34016f0b7d77de21f55129f93970c1"
+      }
+    },
+    {
       "identity" : "yasu",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eisenhuth/yasu.git",
