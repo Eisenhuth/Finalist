@@ -8,6 +8,8 @@ struct LeaderboardView: View {
     @State private var selectedArchive: Leaderboards.archives = .OpenBeta
     @State private var selectedMode: mode = .live
     @State private var searchText = ""
+    @State private var showDialogue = false
+    @State private var selectedEntry: LeaderboardEntry?
     
     enum mode {
         case archive
@@ -71,6 +73,10 @@ struct LeaderboardView: View {
                                             Text(entry.f.description)
                                                 .monospacedDigit()
                                         }
+                                        .onTapGesture(perform: {
+                                            showDialogue = true
+                                            selectedEntry = entry
+                                        })
                                     }
                                 }
                             })
@@ -93,6 +99,32 @@ struct LeaderboardView: View {
         .onAppear(perform: {
             UIRefreshControl.appearance().tintColor = .finalsWhite
         })
+        .confirmationDialog("Linked Accounts", isPresented: $showDialogue, titleVisibility: .visible) {
+            if let selectedEntry = selectedEntry {
+                
+                Button("Embark: \(selectedEntry.name)") {
+                    UIPasteboard.general.string = selectedEntry.name
+                }
+                
+                if selectedEntry.steam != "" {
+                    Button("Steam: \(selectedEntry.steam!)") {
+                        UIPasteboard.general.string = selectedEntry.steam
+                    }
+                }
+                if selectedEntry.psn != "" {
+                    Button("PSN: \(selectedEntry.psn!)") {
+                        UIPasteboard.general.string = selectedEntry.psn
+                    }
+                }
+                if selectedEntry.xbox != "" {
+                    Button("Xbox: \(selectedEntry.xbox!)") {
+                        UIPasteboard.general.string = selectedEntry.xbox
+                    }
+                }
+            }
+        } message: {
+            Text("select a name to copy it to the clipboard")
+        }
     }
     
     func loadLeaderboard(){
