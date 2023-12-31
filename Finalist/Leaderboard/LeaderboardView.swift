@@ -106,19 +106,27 @@ struct LeaderboardView: View {
                     UIPasteboard.general.string = selectedEntry.name
                 }
                 
-                if selectedEntry.steam != "" {
-                    Button("Steam: \(selectedEntry.steam!)") {
-                        UIPasteboard.general.string = selectedEntry.steam
+                if let steam = selectedEntry.steam {
+                    if steam != "" {
+                        Button("Steam: \(steam)") {
+                            UIPasteboard.general.string = steam
+                        }
                     }
                 }
-                if selectedEntry.psn != "" {
-                    Button("PSN: \(selectedEntry.psn!)") {
-                        UIPasteboard.general.string = selectedEntry.psn
+                
+                if let psn = selectedEntry.psn {
+                    if psn != "" {
+                        Button("PSN: \(psn)") {
+                            UIPasteboard.general.string = psn
+                        }
                     }
                 }
-                if selectedEntry.xbox != "" {
-                    Button("Xbox: \(selectedEntry.xbox!)") {
-                        UIPasteboard.general.string = selectedEntry.xbox
+                
+                if let xbox = selectedEntry.xbox {
+                    if xbox != "" {
+                        Button("Xbox: \(xbox)") {
+                            UIPasteboard.general.string = xbox
+                        }
                     }
                 }
             }
