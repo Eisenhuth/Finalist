@@ -4,9 +4,16 @@ import Ospuze
 struct LeaderboardView: View {
     
     @State private var leaderboard: [LeaderboardEntry]?
-    @State private var selection: Leaderboards.identifiers = .LiveCrossplay
+    @State private var selectedLive: Leaderboards.identifiers = .LiveCrossplay
+    @State private var selectedArchive: Leaderboards.archives = .OpenBeta
+    @State private var selectedMode: mode = .live
     @State private var searchText = ""
     
+    enum mode {
+        case archive
+        case live
+    }
+        
     var body: some View {
         ZStack {
             Color.finalsRed
@@ -16,7 +23,7 @@ struct LeaderboardView: View {
                 Text("LEADERBOARDS")
                     .font(.finalsHeader(50))
                 
-                LeaderboardSelection(selection: $selection)
+                LeaderboardSelection(selectedLive: $selectedLive, selectedArchive: $selectedArchive, selectedMode: $selectedMode)
                 
                 SearchBar(searchText: $searchText)
                     .foregroundStyle(.accent)
@@ -79,7 +86,9 @@ struct LeaderboardView: View {
         }
         .foregroundStyle(.finalsWhite)
         .task { loadLeaderboard() }
-        .onChange(of: selection) { loadLeaderboard() }
+        .onChange(of: selectedLive) { loadLeaderboard() }
+        .onChange(of: selectedArchive) { loadLeaderboard() }
+        .onChange(of: selectedMode) { loadLeaderboard() }
         .refreshable { loadLeaderboard() }
         .onAppear(perform: {
             UIRefreshControl.appearance().tintColor = .finalsWhite
@@ -88,7 +97,11 @@ struct LeaderboardView: View {
     
     func loadLeaderboard(){
         Task{
-            leaderboard = await Leaderboards.getLeaderboard(selection)
+            if selectedMode == .live {
+                leaderboard = await Leaderboards.getLeaderboard(selectedLive)
+            } else {
+                leaderboard = await Leaderboards.getArchivedLeaderboard(selectedArchive)
+            }
         }
     }
 }
