@@ -61,7 +61,7 @@ struct LeaderboardView: View {
                             LazyVGrid(columns: columns, content: {
                                 if let leaderboard = searchText.isEmpty ? leaderboard : leaderboard?.filter({ $0.name.lowercased().contains(searchText.lowercased()) }){
                                     
-                                    ForEach(leaderboard, id: \.name){entry in
+                                    ForEach(leaderboard, id: \.r){entry in
                                         GridRow{
                                             Text(entry.r.description)
                                                 .font(.finalsBodyEmphasis())
