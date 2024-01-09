@@ -103,10 +103,10 @@ struct LeaderboardView: View {
             if let selectedEntry = selectedEntry {
                 
                 let platform = switch selectedLive {
-                case .LivePSN: "PSN"
-                case .LiveXbox: "Xbox"
-                case .LiveSteam: "Steam"
-                default: "Embark"
+                    case .LivePSN: "PSN"
+                    case .LiveXbox: "Xbox"
+                    case .LiveSteam: "Steam"
+                    default: "Embark"
                 }
                 
                 Button("\(platform): \(selectedEntry.name)") {
