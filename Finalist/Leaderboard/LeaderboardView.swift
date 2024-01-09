@@ -102,7 +102,14 @@ struct LeaderboardView: View {
         .confirmationDialog("Linked Accounts", isPresented: $showDialogue, titleVisibility: .visible) {
             if let selectedEntry = selectedEntry {
                 
-                Button("Embark: \(selectedEntry.name)") {
+                let platform = switch selectedLive {
+                case .LivePSN: "PSN"
+                case .LiveXbox: "Xbox"
+                case .LiveSteam: "Steam"
+                default: "Embark"
+                }
+                
+                Button("\(platform): \(selectedEntry.name)") {
                     UIPasteboard.general.string = selectedEntry.name
                 }
                 
