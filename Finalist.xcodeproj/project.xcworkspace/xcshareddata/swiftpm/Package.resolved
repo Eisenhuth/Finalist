@@ -6,7 +6,7 @@
       "location" : "https://github.com/Eisenhuth/Ospuze",
       "state" : {
         "branch" : "master",
-        "revision" : "6e5b8dbdda34016f0b7d77de21f55129f93970c1"
+        "revision" : "9bb24b82dc2336bc6ca863bf8b713c245e91a92f"
       }
     },
     {
@@ -15,7 +15,7 @@
       "location" : "https://github.com/eisenhuth/yasu.git",
       "state" : {
         "branch" : "master",
-        "revision" : "8fc5f4329a1e547ccb18bf3eddbd82f5aa635fd8"
+        "revision" : "ba473d3726cc27aab5de41a61845fdad7b67ca6e"
       }
     }
   ],

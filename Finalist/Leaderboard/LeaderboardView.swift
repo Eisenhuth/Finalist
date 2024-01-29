@@ -34,17 +34,18 @@ struct LeaderboardView: View {
                 
                 GeometryReader{gr in
                     let columns = [
-                        GridItem(.fixed(gr.size.width * 0.1)), //Rank
-                        //GridItem(.fixed(gr.size.width * 0.1)), //TODO: 24h
-                        GridItem(.fixed(gr.size.width * 0.3)), //Name
-                        GridItem(.fixed(gr.size.width * 0.3)), //Cashouts
-                        GridItem(.fixed(gr.size.width * 0.15)) //Fame
+                        GridItem(.fixed(gr.size.width * 0.10)), //Rank
+                        GridItem(.fixed(gr.size.width * 0.10)), //24h
+                        GridItem(.fixed(gr.size.width * 0.25)), //Name
+                        GridItem(.fixed(gr.size.width * 0.25)), //Cashouts
+                        GridItem(.fixed(gr.size.width * 0.25))  //Fame
                     ]
                     
                     VStack{
                         LazyVGrid(columns: columns, content: {
                             GridRow {
                                 Text("Rank")
+                                Text("24h")
                                 Text("Name")
                                 Text("Cashouts")
                                 Text("Fame")
@@ -61,18 +62,25 @@ struct LeaderboardView: View {
                             LazyVGrid(columns: columns, content: {
                                 if let leaderboard = searchText.isEmpty ? leaderboard : leaderboard?.filter({ $0.name.lowercased().contains(searchText.lowercased()) }){
                                     
-                                    ForEach(leaderboard, id: \.r){entry in
+                                    ForEach(leaderboard, id: \.self){entry in
+                                        
                                         GridRow{
                                             Text(entry.r.description)
                                                 .font(.finalsBodyEmphasis())
                                                 .monospacedDigit()
+                                            
+                                            Text(entry.rankChange != 0 ? " "+entry.formattedRankChange : "")
+                                                .monospaced()
+                                                .font(.finalsBody(16))
+                                            
                                             Text(entry.name)
-                                                .fixedSize()
+                                            
                                             Text("$\(entry.c.formatted())")
                                                 .monospacedDigit()
                                             Text(entry.f.description)
                                                 .monospacedDigit()
                                         }
+                                        .lineLimit(1)
                                         .onTapGesture(perform: {
                                             showDialogue = true
                                             selectedEntry = entry

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B1AE6902B670B9700B856E6 /* Ospuze in Frameworks */ = {isa = PBXBuildFile; productRef = 0B1AE68F2B670B9700B856E6 /* Ospuze */; };
+		0B1AE6932B67253100B856E6 /* Ospuze in Frameworks */ = {isa = PBXBuildFile; productRef = 0B1AE6922B67253100B856E6 /* Ospuze */; };
 		0B1B5BF02B2C7A4B00223B56 /* FinalistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1B5BEF2B2C7A4B00223B56 /* FinalistApp.swift */; };
 		0B1B5BF22B2C7A4B00223B56 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1B5BF12B2C7A4B00223B56 /* ContentView.swift */; };
 		0B1B5BF42B2C7A4C00223B56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B1B5BF32B2C7A4C00223B56 /* Assets.xcassets */; };
@@ -25,7 +27,6 @@
 		0B1B5C202B2E528900223B56 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1B5C1F2B2E528900223B56 /* SearchBar.swift */; };
 		0B609AF72B3BFAE000EE92A2 /* Ospuze in Frameworks */ = {isa = PBXBuildFile; productRef = 0B609AF62B3BFAE000EE92A2 /* Ospuze */; };
 		0B609AFA2B3BFB1400EE92A2 /* Ospuze in Frameworks */ = {isa = PBXBuildFile; productRef = 0B609AF92B3BFB1400EE92A2 /* Ospuze */; };
-		0BF28F112B40AAFE00EBD04A /* Ospuze in Frameworks */ = {isa = PBXBuildFile; productRef = 0BF28F102B40AAFE00EBD04A /* Ospuze */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,8 +55,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B1AE6932B67253100B856E6 /* Ospuze in Frameworks */,
 				0B609AFA2B3BFB1400EE92A2 /* Ospuze in Frameworks */,
-				0BF28F112B40AAFE00EBD04A /* Ospuze in Frameworks */,
+				0B1AE6902B670B9700B856E6 /* Ospuze in Frameworks */,
 				0B609AF72B3BFAE000EE92A2 /* Ospuze in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,7 +148,8 @@
 			packageProductDependencies = (
 				0B609AF62B3BFAE000EE92A2 /* Ospuze */,
 				0B609AF92B3BFB1400EE92A2 /* Ospuze */,
-				0BF28F102B40AAFE00EBD04A /* Ospuze */,
+				0B1AE68F2B670B9700B856E6 /* Ospuze */,
+				0B1AE6922B67253100B856E6 /* Ospuze */,
 			);
 			productName = Finalist;
 			productReference = 0B1B5BEC2B2C7A4B00223B56 /* Finalist.app */;
@@ -177,7 +180,7 @@
 			);
 			mainGroup = 0B1B5BE32B2C7A4B00223B56;
 			packageReferences = (
-				0BF28F0F2B40AAFE00EBD04A /* XCRemoteSwiftPackageReference "Ospuze" */,
+				0B1AE6912B67253100B856E6 /* XCRemoteSwiftPackageReference "Ospuze" */,
 			);
 			productRefGroup = 0B1B5BED2B2C7A4B00223B56 /* Products */;
 			projectDirPath = "";
@@ -432,7 +435,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0BF28F0F2B40AAFE00EBD04A /* XCRemoteSwiftPackageReference "Ospuze" */ = {
+		0B1AE6912B67253100B856E6 /* XCRemoteSwiftPackageReference "Ospuze" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Eisenhuth/Ospuze";
 			requirement = {
@@ -443,17 +446,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0B1AE68F2B670B9700B856E6 /* Ospuze */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Ospuze;
+		};
+		0B1AE6922B67253100B856E6 /* Ospuze */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B1AE6912B67253100B856E6 /* XCRemoteSwiftPackageReference "Ospuze" */;
+			productName = Ospuze;
+		};
 		0B609AF62B3BFAE000EE92A2 /* Ospuze */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Ospuze;
 		};
 		0B609AF92B3BFB1400EE92A2 /* Ospuze */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Ospuze;
-		};
-		0BF28F102B40AAFE00EBD04A /* Ospuze */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0BF28F0F2B40AAFE00EBD04A /* XCRemoteSwiftPackageReference "Ospuze" */;
 			productName = Ospuze;
 		};
 /* End XCSwiftPackageProductDependency section */
