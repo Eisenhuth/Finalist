@@ -33,10 +33,17 @@ struct LeaderboardView: View {
                 Spacer()
                 
                 GeometryReader{gr in
-                    let columns = [
+                    let columns = selectedMode == .live
+                    ? [
                         GridItem(.fixed(gr.size.width * 0.10)), //Rank
                         GridItem(.fixed(gr.size.width * 0.10)), //24h
                         GridItem(.fixed(gr.size.width * 0.25)), //Name
+                        GridItem(.fixed(gr.size.width * 0.25)), //Cashouts
+                        GridItem(.fixed(gr.size.width * 0.25))  //Fame
+                    ]
+                    : [
+                        GridItem(.fixed(gr.size.width * 0.10)), //Rank
+                        GridItem(.fixed(gr.size.width * 0.30)), //Name
                         GridItem(.fixed(gr.size.width * 0.25)), //Cashouts
                         GridItem(.fixed(gr.size.width * 0.25))  //Fame
                     ]
@@ -45,7 +52,7 @@ struct LeaderboardView: View {
                         LazyVGrid(columns: columns, content: {
                             GridRow {
                                 Text("Rank")
-                                Text("24h")
+                                if selectedMode == .live { Text("24h") }
                                 Text("Name")
                                 Text("Cashouts")
                                 Text("Fame")
@@ -68,10 +75,11 @@ struct LeaderboardView: View {
                                             Text(entry.r.description)
                                                 .font(.finalsBodyEmphasis())
                                                 .monospacedDigit()
-                                            
-                                            Text(entry.rankChange != 0 ? " "+entry.formattedRankChange : "")
-                                                .monospaced()
-                                                .font(.finalsBody(16))
+                                            if selectedMode == .live {
+                                                Text(entry.rankChange != 0 ? " "+entry.formattedRankChange : "")
+                                                    .monospaced()
+                                                    .font(.finalsBody(16))
+                                            }
                                             
                                             Text(entry.name)
                                             
