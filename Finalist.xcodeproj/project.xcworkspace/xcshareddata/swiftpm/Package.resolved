@@ -1,12 +1,13 @@
 {
+  "originHash" : "4203d7f4982ab2f2512c86fa1766c2e8f32e0af934ba74f7e94a9b04b6fe1112",
   "pins" : [
     {
       "identity" : "ospuze",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Eisenhuth/Ospuze",
       "state" : {
-        "branch" : "master",
-        "revision" : "9bb24b82dc2336bc6ca863bf8b713c245e91a92f"
+        "revision" : "30461d3fd358332f8f1c48f1c2c3814954748e9a",
+        "version" : "2.0.0"
       }
     },
     {
@@ -14,10 +15,10 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eisenhuth/yasu.git",
       "state" : {
-        "branch" : "master",
-        "revision" : "ba473d3726cc27aab5de41a61845fdad7b67ca6e"
+        "revision" : "ba473d3726cc27aab5de41a61845fdad7b67ca6e",
+        "version" : "1.0.1"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
