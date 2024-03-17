@@ -63,7 +63,7 @@ struct LiveView: View {
                                             
                                             Image(entry.leagueName)
                                                 .resizable()
-                                                .frame(width: 40, height: 40)
+                                                .frame(width: 30, height: 30)
                                             
                                             
                                         }
