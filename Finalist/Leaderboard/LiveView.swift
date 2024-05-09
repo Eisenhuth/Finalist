@@ -6,6 +6,8 @@ struct LiveView: View {
     @State private var selectedPlatform: Platforms = .Crossplay
     @State private var selectedLeaderboard: Leaderboards.idenfifiersV2 = .LiveCrossplay
     @State private var searchText = ""
+    @State private var showDialogue = false
+    @State private var selectedEntry: LeaderboardEntryV2?
     var theme: Color = .finalsPurple
     var seasonTitle = "SEASON 2"
     
@@ -68,6 +70,10 @@ struct LiveView: View {
                                             
                                         }
                                         .lineLimit(1)
+                                        .onTapGesture(perform: {
+                                            showDialogue = true
+                                            selectedEntry = entry
+                                        })
                                     }
                                 }
                             })
@@ -79,6 +85,41 @@ struct LiveView: View {
                 }
                 .font(.finalsBody(16))
             }
+        }
+        .confirmationDialog("Linked Accounts", isPresented: $showDialogue, titleVisibility: .visible) {
+            if let selectedEntry = selectedEntry {
+                
+                let platform = switch selectedPlatform {
+                case .PSN: "PSN"
+                case .Xbox: "Xbox"
+                case .Steam: "Steam"
+                default: "Embark"
+                }
+                
+                Button("\(platform): \(selectedEntry.name)") {
+                    UIPasteboard.general.string = selectedEntry.name
+                }
+                
+                if !selectedEntry.steam.isEmpty {
+                    Button("Steam: \(selectedEntry.steam)") {
+                        UIPasteboard.general.string = selectedEntry.steam
+                    }
+                }
+                
+                if !selectedEntry.psn.isEmpty {
+                    Button("PSN: \(selectedEntry.psn)") {
+                        UIPasteboard.general.string = selectedEntry.psn
+                    }
+                }
+                
+                if !selectedEntry.xbox.isEmpty {
+                    Button("Xbox: \(selectedEntry.xbox)") {
+                        UIPasteboard.general.string = selectedEntry.xbox
+                    }
+                }
+            }
+        } message: {
+            Text("select a name to copy it to the clipboard")
         }
         .foregroundStyle(.finalsWhite)
         .tint(theme)
