@@ -2,13 +2,23 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var selectedMode: Modes = .Live
+    @State private var selectedSeason: Seasons = .Season3
     @State private var showingSettings = false
+    var backgroundColor: Color {
+        switch selectedSeason {
+        case .ClosedBeta1, .ClosedBeta2, .OpenBeta, .Season1:
+                .finalsRed
+        case .Season2:
+                .finalsPurple
+        case .Season3:
+                .finalsRed
+        }
+    }
     
     var body: some View {
         NavigationStack{
             ZStack{
-                
-                Color(selectedMode == .Live ? LiveView().theme : .finalsRed)
+                Color(backgroundColor)
                     .ignoresSafeArea()
                 
                 VStack{
@@ -16,10 +26,15 @@ struct ContentView: View {
                         .font(.finalsHeader(50))
                         .frame(height: 50)
                     
-                    ModeSelection(mode: $selectedMode)
-                    
-                    if selectedMode == .Archive { ArchiveView() }
-                    else { LiveView() }
+                    SeasonSelection(leaderboard: $selectedSeason)
+                    switch selectedSeason {
+                    case .ClosedBeta1, .ClosedBeta2, .OpenBeta, .Season1:
+                        LeaderboardViewV1()
+                    case .Season2:
+                        LeaderboardViewV2()
+                    case .Season3:
+                        LeaderboardViewV3()
+                    }
                 }
             }
             .foregroundStyle(.finalsWhite)

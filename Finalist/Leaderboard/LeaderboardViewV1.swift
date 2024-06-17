@@ -1,7 +1,7 @@
 import SwiftUI
 import Ospuze
 
-struct ArchiveView: View {
+struct LeaderboardViewV1: View {
     
     @State private var leaderboard: [LeaderboardEntry]?
     @State private var selectedArchive: Leaderboards.archives = .S1_Crossplay
@@ -106,6 +106,7 @@ struct ArchiveView: View {
         .onChange(of: selectedPlatform) {
             
             //problem for future me: deal with Season 2 being here
+            //future me: thanks.
             if hasMultiplePlatforms {
                 switch selectedPlatform {
                 case .Crossplay:
@@ -133,5 +134,5 @@ struct ArchiveView: View {
 }
 
 #Preview {
-    ArchiveView()
+    LeaderboardViewV1()
 }

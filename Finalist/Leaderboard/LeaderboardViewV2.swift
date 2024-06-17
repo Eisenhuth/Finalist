@@ -1,10 +1,10 @@
 import SwiftUI
 import Ospuze
 
-struct LiveView: View {
+struct LeaderboardViewV2: View {
     @State private var leaderboard: [LeaderboardEntryV2]?
     @State private var selectedPlatform: Platforms = .Crossplay
-    @State private var selectedLeaderboard: Leaderboards.idenfifiersV2 = .LiveCrossplay
+    @State private var selectedLeaderboard: Leaderboards.archivesV2 = .S2_Crossplay
     @State private var searchText = ""
     @State private var showDialogue = false
     @State private var selectedEntry: LeaderboardEntryV2?
@@ -24,8 +24,7 @@ struct LiveView: View {
                 GeometryReader{gr in
                     let columns =  [
                         GridItem(.fixed(gr.size.width * 0.15)), //Rank
-                        GridItem(.fixed(gr.size.width * 0.20)), //24h
-                        GridItem(.fixed(gr.size.width * 0.40)), //Name
+                        GridItem(.fixed(gr.size.width * 0.50)), //Name
                         GridItem(.fixed(gr.size.width * 0.20))  //League
                     ]
                     
@@ -33,7 +32,6 @@ struct LiveView: View {
                         LazyVGrid(columns: columns, content: {
                             GridRow {
                                 Text("Rank")
-                                Text("24h")
                                 Text("Name")
                                 Text("League")
                             }
@@ -56,17 +54,12 @@ struct LiveView: View {
                                                 .font(.finalsBodyEmphasis())
                                                 .monospacedDigit()
                                             
-                                            Text(entry.rankChange != 0 ? " "+entry.formattedRankChange : "")
-                                                .monospaced()
-                                                .font(.finalsBody(16))
-                                            
                                             Text(entry.name)
                                             
                                             
                                             Image(entry.leagueName)
                                                 .resizable()
                                                 .frame(width: 30, height: 30)
-                                            
                                             
                                         }
                                         .lineLimit(1)
@@ -126,10 +119,10 @@ struct LiveView: View {
         .task { loadLeaderboard() }
         .onChange(of: selectedPlatform) {
             selectedLeaderboard = switch selectedPlatform {
-            case .Crossplay: .LiveCrossplay
-            case .Steam: .LiveSteam
-            case .PSN: .LivePSN
-            case .Xbox: .LiveXbox
+            case .Crossplay: .S2_Crossplay
+            case .Steam: .S2_Steam
+            case .PSN: .S2_PSN
+            case .Xbox: .S2_Xbox
             }
             loadLeaderboard()
         }
@@ -137,11 +130,11 @@ struct LiveView: View {
     
     func loadLeaderboard(){
         Task{
-            leaderboard = await Leaderboards.getLeaderboardV2(selectedLeaderboard)
+            leaderboard = await Leaderboards.getArchivedLeaderboardV2(selectedLeaderboard)
         }
     }
 }
 
 #Preview {
-    LiveView()
+    LeaderboardViewV2()
 }

@@ -21,14 +21,17 @@
 		0B1B5C0D2B2C87BD00223B56 /* Saira_Condensed-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B1B5C002B2C856F00223B56 /* Saira_Condensed-Medium.ttf */; };
 		0B1B5C0E2B2C87BD00223B56 /* Saira_ExtraCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B1B5BFD2B2C856F00223B56 /* Saira_ExtraCondensed-Regular.ttf */; };
 		0B1B5C112B2D15A200223B56 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1B5C102B2D15A200223B56 /* FontExtension.swift */; };
-		0B1B5C152B2E07A200223B56 /* ArchiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1B5C142B2E07A200223B56 /* ArchiveView.swift */; };
+		0B1B5C152B2E07A200223B56 /* LeaderboardViewV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1B5C142B2E07A200223B56 /* LeaderboardViewV1.swift */; };
 		0B1B5C202B2E528900223B56 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1B5C1F2B2E528900223B56 /* SearchBar.swift */; };
 		0B5456A12BA4BC4200622B4C /* Ospuze in Frameworks */ = {isa = PBXBuildFile; productRef = 0B5456A02BA4BC4200622B4C /* Ospuze */; };
 		0B5456A52BA666B000622B4C /* PlatformSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5456A42BA666B000622B4C /* PlatformSelection.swift */; };
-		0B5456A92BA6698E00622B4C /* LiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5456A82BA6698E00622B4C /* LiveView.swift */; };
+		0B5456A92BA6698E00622B4C /* LeaderboardViewV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5456A82BA6698E00622B4C /* LeaderboardViewV2.swift */; };
 		0B5456AB2BA66E2F00622B4C /* ModeSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5456AA2BA66E2F00622B4C /* ModeSelection.swift */; };
 		0B5456AD2BA74D8C00622B4C /* ArchiveSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5456AC2BA74D8C00622B4C /* ArchiveSelection.swift */; };
-		0B5456B22BA791BF00622B4C /* Ospuze in Frameworks */ = {isa = PBXBuildFile; productRef = 0B5456B12BA791BF00622B4C /* Ospuze */; };
+		0B5EDE3E2C1F4BBF00697548 /* Ospuze in Frameworks */ = {isa = PBXBuildFile; productRef = 0B5EDE3D2C1F4BBF00697548 /* Ospuze */; };
+		0B5EDE402C1F50EB00697548 /* SeasonSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5EDE3F2C1F50EB00697548 /* SeasonSelection.swift */; };
+		0B5EDE422C1F527100697548 /* LeaderboardViewV3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5EDE412C1F527100697548 /* LeaderboardViewV3.swift */; };
+		0B5EDE452C1FCF8500697548 /* Ospuze in Frameworks */ = {isa = PBXBuildFile; productRef = 0B5EDE442C1FCF8500697548 /* Ospuze */; };
 		0B609AF72B3BFAE000EE92A2 /* Ospuze in Frameworks */ = {isa = PBXBuildFile; productRef = 0B609AF62B3BFAE000EE92A2 /* Ospuze */; };
 		0B609AFA2B3BFB1400EE92A2 /* Ospuze in Frameworks */ = {isa = PBXBuildFile; productRef = 0B609AF92B3BFB1400EE92A2 /* Ospuze */; };
 /* End PBXBuildFile section */
@@ -49,12 +52,14 @@
 		0B1B5C042B2C856F00223B56 /* Saira_Condensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Saira_Condensed-Bold.ttf"; sourceTree = "<group>"; };
 		0B1B5C062B2C86A100223B56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0B1B5C102B2D15A200223B56 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
-		0B1B5C142B2E07A200223B56 /* ArchiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveView.swift; sourceTree = "<group>"; };
+		0B1B5C142B2E07A200223B56 /* LeaderboardViewV1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewV1.swift; sourceTree = "<group>"; };
 		0B1B5C1F2B2E528900223B56 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		0B5456A42BA666B000622B4C /* PlatformSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformSelection.swift; sourceTree = "<group>"; };
-		0B5456A82BA6698E00622B4C /* LiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveView.swift; sourceTree = "<group>"; };
+		0B5456A82BA6698E00622B4C /* LeaderboardViewV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewV2.swift; sourceTree = "<group>"; };
 		0B5456AA2BA66E2F00622B4C /* ModeSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSelection.swift; sourceTree = "<group>"; };
 		0B5456AC2BA74D8C00622B4C /* ArchiveSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveSelection.swift; sourceTree = "<group>"; };
+		0B5EDE3F2C1F50EB00697548 /* SeasonSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonSelection.swift; sourceTree = "<group>"; };
+		0B5EDE412C1F527100697548 /* LeaderboardViewV3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewV3.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,10 +67,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B5456B22BA791BF00622B4C /* Ospuze in Frameworks */,
+				0B5EDE3E2C1F4BBF00697548 /* Ospuze in Frameworks */,
 				0B5456A12BA4BC4200622B4C /* Ospuze in Frameworks */,
 				0B609AFA2B3BFB1400EE92A2 /* Ospuze in Frameworks */,
 				0B1AE6902B670B9700B856E6 /* Ospuze in Frameworks */,
+				0B5EDE452C1FCF8500697548 /* Ospuze in Frameworks */,
 				0B609AF72B3BFAE000EE92A2 /* Ospuze in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,9 +138,11 @@
 			children = (
 				0B5456A42BA666B000622B4C /* PlatformSelection.swift */,
 				0B5456AA2BA66E2F00622B4C /* ModeSelection.swift */,
+				0B5EDE3F2C1F50EB00697548 /* SeasonSelection.swift */,
 				0B5456AC2BA74D8C00622B4C /* ArchiveSelection.swift */,
-				0B1B5C142B2E07A200223B56 /* ArchiveView.swift */,
-				0B5456A82BA6698E00622B4C /* LiveView.swift */,
+				0B1B5C142B2E07A200223B56 /* LeaderboardViewV1.swift */,
+				0B5456A82BA6698E00622B4C /* LeaderboardViewV2.swift */,
+				0B5EDE412C1F527100697548 /* LeaderboardViewV3.swift */,
 				0B1B5C1F2B2E528900223B56 /* SearchBar.swift */,
 			);
 			path = Leaderboard;
@@ -161,7 +169,8 @@
 				0B609AF92B3BFB1400EE92A2 /* Ospuze */,
 				0B1AE68F2B670B9700B856E6 /* Ospuze */,
 				0B5456A02BA4BC4200622B4C /* Ospuze */,
-				0B5456B12BA791BF00622B4C /* Ospuze */,
+				0B5EDE3D2C1F4BBF00697548 /* Ospuze */,
+				0B5EDE442C1FCF8500697548 /* Ospuze */,
 			);
 			productName = Finalist;
 			productReference = 0B1B5BEC2B2C7A4B00223B56 /* Finalist.app */;
@@ -192,7 +201,7 @@
 			);
 			mainGroup = 0B1B5BE32B2C7A4B00223B56;
 			packageReferences = (
-				0B5456B02BA791BF00622B4C /* XCRemoteSwiftPackageReference "Ospuze" */,
+				0B5EDE432C1FCF8500697548 /* XCRemoteSwiftPackageReference "Ospuze" */,
 			);
 			productRefGroup = 0B1B5BED2B2C7A4B00223B56 /* Products */;
 			projectDirPath = "";
@@ -228,11 +237,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B1B5C152B2E07A200223B56 /* ArchiveView.swift in Sources */,
+				0B1B5C152B2E07A200223B56 /* LeaderboardViewV1.swift in Sources */,
 				0B5456AB2BA66E2F00622B4C /* ModeSelection.swift in Sources */,
 				0B1B5C112B2D15A200223B56 /* FontExtension.swift in Sources */,
 				0B1B5C202B2E528900223B56 /* SearchBar.swift in Sources */,
-				0B5456A92BA6698E00622B4C /* LiveView.swift in Sources */,
+				0B5EDE402C1F50EB00697548 /* SeasonSelection.swift in Sources */,
+				0B5456A92BA6698E00622B4C /* LeaderboardViewV2.swift in Sources */,
+				0B5EDE422C1F527100697548 /* LeaderboardViewV3.swift in Sources */,
 				0B5456A52BA666B000622B4C /* PlatformSelection.swift in Sources */,
 				0B5456AD2BA74D8C00622B4C /* ArchiveSelection.swift in Sources */,
 				0B1B5BF22B2C7A4B00223B56 /* ContentView.swift in Sources */,
@@ -450,12 +461,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0B5456B02BA791BF00622B4C /* XCRemoteSwiftPackageReference "Ospuze" */ = {
+		0B5EDE432C1FCF8500697548 /* XCRemoteSwiftPackageReference "Ospuze" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Eisenhuth/Ospuze";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				kind = exactVersion;
+				version = 3.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -469,9 +480,13 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = Ospuze;
 		};
-		0B5456B12BA791BF00622B4C /* Ospuze */ = {
+		0B5EDE3D2C1F4BBF00697548 /* Ospuze */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0B5456B02BA791BF00622B4C /* XCRemoteSwiftPackageReference "Ospuze" */;
+			productName = Ospuze;
+		};
+		0B5EDE442C1FCF8500697548 /* Ospuze */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B5EDE432C1FCF8500697548 /* XCRemoteSwiftPackageReference "Ospuze" */;
 			productName = Ospuze;
 		};
 		0B609AF62B3BFAE000EE92A2 /* Ospuze */ = {
