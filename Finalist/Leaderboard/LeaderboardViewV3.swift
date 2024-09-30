@@ -6,35 +6,39 @@ struct LeaderboardViewV3: View {
     @State private var searchText = ""
     @State private var showDialogue = false
     @State private var selectedEntry: LeaderboardEntryV3?
-    @State private var s3selection: Leaderboards.identifiersV3 = .S3_Worldtour
-    var theme: Color = .finalsDarkRed
-    var seasonTitle = "SEASON 3"
+    @State private var selection: Leaderboards.identifiersV3 = .S4_Crossplay
+    var archived: Bool = false
+    var theme: Color = .finalsRed
+    var leaderboards: [Leaderboards.identifiersV3] = [.S4_Crossplay, .S4_Worldtour, .S4_Sponsor]
     let selectedFont: Font = .finalsButtonEmphasis(35)
     let normalFont: Font = .finalsButton(30)
     
     var body: some View {
         ZStack{
             
-            LinearGradient(colors: [.finalsRed, .finalsDarkRed, .finalsDarkRed, .finalsDarkRed, .finalsDarkRed, .finalsBlack], startPoint: .top, endPoint: .bottom)
+            LinearGradient(colors: [.finalsRed, theme, theme, theme], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
                         
             VStack{
                 HStack {
-                    Text("RANKED")
-                        .onTapGesture { s3selection = .S3_Crossplay }
-                        .font(s3selection == .S3_Crossplay ? selectedFont : normalFont)
-                    Text("I")
-                        .font(normalFont)
-                    Text("WORLD TOUR")
-                        .onTapGesture { s3selection = .S3_Worldtour }
-                        .font(s3selection == .S3_Worldtour ? selectedFont : normalFont)
+                    ForEach(leaderboards, id: \.self) { identifier in
+                        
+                        Text(getTitle(for: identifier).uppercased())
+                            .onTapGesture { selection = identifier }
+                            .font(selection == identifier ? selectedFont : normalFont)
+                        
+                        if identifier != leaderboards.last {
+                            Text("I")
+                                .font(normalFont)
+                        }
+                    }
                 }
                 .frame(height: 35)
                 
                 SearchBar(searchText: $searchText).foregroundStyle(theme)
                 
                 GeometryReader{gr in
-                    let columns = s3selection == .S3_Crossplay
+                    let columns = !archived
                     ? [
                         GridItem(.fixed(gr.size.width * 0.15)), //Rank
                         GridItem(.fixed(gr.size.width * 0.20)), //24h
@@ -51,10 +55,13 @@ struct LeaderboardViewV3: View {
                         LazyVGrid(columns: columns, content: {
                             GridRow {
                                 Text("Rank")
-                                if s3selection == .S3_Crossplay { Text("24h") }
+                                if !archived { Text("24h") }
                                 Text("Name")
-                                if s3selection == .S3_Crossplay { Text("League") }
-                                if s3selection == .S3_Worldtour { Text("Cashouts") }
+                                if selection == .S3_Crossplay || selection == .S4_Crossplay { Text("League") }
+                                if selection == .S3_Worldtour || selection == .S4_Worldtour { Text("Cashouts") }
+//                                if selection == .S4_Sponsor { Text("Sponsor") } //TODO
+                                if selection == .S4_Sponsor { Text("Fans") }
+                                
                             }
                         })
                         .font(.finalsBodyEmphasis())
@@ -74,21 +81,25 @@ struct LeaderboardViewV3: View {
                                                 .font(.finalsBodyEmphasis())
                                                 .monospacedDigit()
                                             
-                                            if s3selection == .S3_Crossplay {
+                                            if !archived {
                                                 Text(entry.change?.description ?? "")
                                                     .monospaced()
                                             }
                                             
                                             Text(entry.name)
                                             
-                                            if s3selection == .S3_Crossplay {
+                                            if selection == .S3_Crossplay || selection == .S4_Crossplay {
                                                 Image(entry.league ?? "Diamond 1")
                                                     .resizable()
                                                     .frame(width: 30, height: 30)
                                             }
                                             
-                                            if s3selection == .S3_Worldtour {
+                                            if selection == .S3_Worldtour || selection == .S4_Worldtour {
                                                 Text("$\(entry.cashouts?.formatted() ?? "")")
+                                            }
+                                            
+                                            if selection == .S4_Sponsor {
+                                                Text(entry.fans?.formatted() ?? "")
                                             }
                                         }
                                         .lineLimit(1)
@@ -136,13 +147,42 @@ struct LeaderboardViewV3: View {
         }
         .foregroundStyle(.finalsWhite)
         .tint(theme)
-        .onChange(of: s3selection) { loadLeaderboard() }
+        .onChange(of: selection) { loadLeaderboard() }
+        .task { selection = leaderboards[0] }
         .task { loadLeaderboard() }
     }
     
     func loadLeaderboard(){
         Task{
-            leaderboard = await Leaderboards.getLeaderboardV3(s3selection)
+            if !archived {
+                leaderboard = await Leaderboards.getLeaderboardV3(selection)
+            } else {
+                guard let correspondingArchive = correspondingArchive(selection: selection) else {
+                    leaderboard = await Leaderboards.getLeaderboardV3(selection); return
+                }
+                leaderboard = await Leaderboards.getArchivedLeaderboardV3(correspondingArchive)
+            }
+        }
+    }
+    
+    func getTitle(for selection: Leaderboards.identifiersV3) -> String {
+        switch selection {
+        case .S3_Crossplay, .S4_Crossplay:
+            return "Ranked"
+        case .S4_Worldtour, .S3_Worldtour:
+            return "World Tour"
+        case .S4_Sponsor:
+            return "Sponsor"
+        }
+    }
+    
+    func correspondingArchive(selection: Leaderboards.identifiersV3) -> Leaderboards.archivesV3? {
+        switch selection {
+        case .S3_Crossplay: .S3_Crossplay
+        case .S3_Worldtour: .S3_Worldtour
+        case .S4_Crossplay: nil
+        case .S4_Worldtour: nil
+        case .S4_Sponsor: nil
         }
     }
 }

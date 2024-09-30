@@ -2,16 +2,14 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var selectedMode: Modes = .Live
-    @State private var selectedSeason: Seasons = .Season3
+    @State private var selectedSeason: Seasons = .Season4
     @State private var showingSettings = false
     var backgroundColor: Color {
         switch selectedSeason {
-        case .ClosedBeta1, .ClosedBeta2, .OpenBeta, .Season1:
+        case .ClosedBeta1, .ClosedBeta2, .OpenBeta, .Season1, .Season3, .Season4:
                 .finalsRed
         case .Season2:
                 .finalsPurple
-        case .Season3:
-                .finalsRed
         }
     }
     
@@ -33,7 +31,9 @@ struct ContentView: View {
                     case .Season2:
                         LeaderboardViewV2()
                     case .Season3:
-                        LeaderboardViewV3()
+                        LeaderboardViewV3(archived: true, theme: .finalsDarkRed, leaderboards: [.S3_Crossplay, .S3_Worldtour])
+                    case .Season4:
+                        LeaderboardViewV3(archived: false, theme: .finalsRed, leaderboards: [.S4_Crossplay, .S4_Worldtour, .S4_Sponsor])
                     }
                 }
             }

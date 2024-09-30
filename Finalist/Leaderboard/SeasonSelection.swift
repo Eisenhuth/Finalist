@@ -7,6 +7,7 @@ enum Seasons {
     case Season1
     case Season2
     case Season3
+    case Season4
 }
 
 struct SeasonSelection: View {
@@ -29,6 +30,11 @@ struct SeasonSelection: View {
             Text("S3")
                 .onTapGesture { leaderboard = .Season3 }
                 .font(leaderboard == .Season3 ? selectedFont : normalFont)
+            Text("I")
+                .font(normalFont)
+            Text("S4")
+                .onTapGesture { leaderboard = .Season4 }
+                .font(leaderboard == .Season4 ? selectedFont : normalFont)
         }
         .frame(height: 35)
     }
