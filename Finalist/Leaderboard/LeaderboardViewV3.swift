@@ -38,7 +38,7 @@ struct LeaderboardViewV3: View {
                 SearchBar(searchText: $searchText).foregroundStyle(theme)
                 
                 GeometryReader{gr in
-                    let columns = !archived
+                    let columns = !archived && (selection == .S4_Crossplay || selection == .S5_Crossplay)
                     ? [
                         GridItem(.fixed(gr.size.width * 0.15)), //Rank
                         GridItem(.fixed(gr.size.width * 0.20)), //24h
@@ -55,12 +55,12 @@ struct LeaderboardViewV3: View {
                         LazyVGrid(columns: columns, content: {
                             GridRow {
                                 Text("Rank")
-                                if !archived { Text("24h") }
+                                if !archived && (selection == .S4_Crossplay || selection == .S5_Crossplay) { Text("24h") }
                                 Text("Name")
-                                if selection == .S3_Crossplay || selection == .S4_Crossplay { Text("League") }
-                                if selection == .S3_Worldtour || selection == .S4_Worldtour { Text("Cashouts") }
+                                if selection == .S3_Crossplay || selection == .S4_Crossplay || selection == .S5_Crossplay { Text("League") }
+                                if selection == .S3_Worldtour || selection == .S4_Worldtour || selection == .S5_Worldtour { Text("Cashouts") }
 //                                if selection == .S4_Sponsor { Text("Sponsor") } //TODO
-                                if selection == .S4_Sponsor { Text("Fans") }
+                                if selection == .S4_Sponsor || selection == .S5_Sponsor { Text("Fans") }
                                 
                             }
                         })
@@ -81,24 +81,24 @@ struct LeaderboardViewV3: View {
                                                 .font(.finalsBodyEmphasis())
                                                 .monospacedDigit()
                                             
-                                            if !archived {
+                                            if !archived && (selection == .S4_Crossplay || selection == .S5_Crossplay) {
                                                 Text(entry.change?.description ?? "")
                                                     .monospaced()
                                             }
                                             
                                             Text(entry.name)
                                             
-                                            if selection == .S3_Crossplay || selection == .S4_Crossplay {
+                                            if selection == .S3_Crossplay || selection == .S4_Crossplay || selection == .S5_Crossplay {
                                                 Image(entry.league ?? "Diamond 1")
                                                     .resizable()
                                                     .frame(width: 30, height: 30)
                                             }
                                             
-                                            if selection == .S3_Worldtour || selection == .S4_Worldtour {
+                                            if selection == .S3_Worldtour || selection == .S4_Worldtour || selection == .S5_Worldtour {
                                                 Text("$\(entry.cashouts?.formatted() ?? "")")
                                             }
                                             
-                                            if selection == .S4_Sponsor {
+                                            if selection == .S4_Sponsor || selection == .S5_Sponsor {
                                                 Text(entry.fans?.formatted() ?? "")
                                             }
                                         }
@@ -167,11 +167,11 @@ struct LeaderboardViewV3: View {
     
     func getTitle(for selection: Leaderboards.identifiersV3) -> String {
         switch selection {
-        case .S3_Crossplay, .S4_Crossplay:
+        case .S3_Crossplay, .S4_Crossplay, .S5_Crossplay:
             return "Ranked"
-        case .S4_Worldtour, .S3_Worldtour:
+        case .S3_Worldtour, .S4_Worldtour, .S5_Worldtour:
             return "World Tour"
-        case .S4_Sponsor:
+        case .S4_Sponsor, .S5_Sponsor:
             return "Sponsor"
         }
     }
@@ -180,9 +180,14 @@ struct LeaderboardViewV3: View {
         switch selection {
         case .S3_Crossplay: .S3_Crossplay
         case .S3_Worldtour: .S3_Worldtour
-        case .S4_Crossplay: nil
-        case .S4_Worldtour: nil
-        case .S4_Sponsor: nil
+        
+        case .S4_Crossplay: .S4_Crossplay
+        case .S4_Worldtour: .S4_Worldtour
+        case .S4_Sponsor:   .S4_Sponsor
+        
+        case .S5_Crossplay: nil
+        case .S5_Worldtour: nil
+        case .S5_Sponsor:   nil
         }
     }
 }
