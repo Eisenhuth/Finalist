@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Eisenhuth/Ospuze",
       "state" : {
-        "revision" : "a87533d1b0d72c8fb65b19961393a77b18d3f387",
-        "version" : "5.0.0"
+        "revision" : "2347d62006692d9c3d0be1eadf4aa0fbce989734",
+        "version" : "6.0.0"
       }
     },
     {
