@@ -24,6 +24,7 @@
 		0B1B5C202B2E528900223B56 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1B5C1F2B2E528900223B56 /* SearchBar.swift */; };
 		0B4158342CAB4F2D00DF7B9A /* Ospuze in Frameworks */ = {isa = PBXBuildFile; productRef = 0B4158332CAB4F2D00DF7B9A /* Ospuze */; };
 		0B4158392CAB5F8800DF7B9A /* Ospuze in Frameworks */ = {isa = PBXBuildFile; productRef = 0B4158382CAB5F8800DF7B9A /* Ospuze */; };
+		0B429E862DFF20BF008FF80B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B429E852DFF20BF008FF80B /* SettingsView.swift */; };
 		0B5456A12BA4BC4200622B4C /* Ospuze in Frameworks */ = {isa = PBXBuildFile; productRef = 0B5456A02BA4BC4200622B4C /* Ospuze */; };
 		0B567D6C2D14F71A004A553E /* Ospuze in Frameworks */ = {isa = PBXBuildFile; productRef = 0B567D6B2D14F71A004A553E /* Ospuze */; };
 		0B5EDE3E2C1F4BBF00697548 /* Ospuze in Frameworks */ = {isa = PBXBuildFile; productRef = 0B5EDE3D2C1F4BBF00697548 /* Ospuze */; };
@@ -57,6 +58,7 @@
 		0B1B5C062B2C86A100223B56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0B1B5C102B2D15A200223B56 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		0B1B5C1F2B2E528900223B56 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		0B429E852DFF20BF008FF80B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0B5EDE412C1F527100697548 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		0BDA0E082DFD05DC00895CD6 /* OspuzeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OspuzeUtils.swift; sourceTree = "<group>"; };
 		0BDA0E0C2DFD07EE00895CD6 /* LeaderboardTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardTypes.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			children = (
 				0B1B5C062B2C86A100223B56 /* Info.plist */,
 				0B1B5BF12B2C7A4B00223B56 /* ContentView.swift */,
+				0B429E852DFF20BF008FF80B /* SettingsView.swift */,
 				0B1B5BEF2B2C7A4B00223B56 /* FinalistApp.swift */,
 				0B1B5C232B2F2A7100223B56 /* Leaderboard */,
 				0B1B5BF32B2C7A4C00223B56 /* Assets.xcassets */,
@@ -259,6 +262,7 @@
 				0BDA0E142DFD275800895CD6 /* PlayerName.swift in Sources */,
 				0B1B5BF22B2C7A4B00223B56 /* ContentView.swift in Sources */,
 				0B1B5BF02B2C7A4B00223B56 /* FinalistApp.swift in Sources */,
+				0B429E862DFF20BF008FF80B /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

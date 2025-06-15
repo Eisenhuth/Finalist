@@ -26,7 +26,11 @@ struct ContentView: View {
                     NavigationLink(destination: { LeaderboardView(leaderboardType: .tdm) }) { Text("Team Deathmatch")}
                     NavigationLink(destination: { LeaderboardView(leaderboardType: .terminalattack) }) { Text("Terminal Attack") }
                     
-                    Spacer()                                                            
+                    Spacer()
+                    
+                    NavigationLink(destination: { SettingsView() }) { Text("Settings") }
+
+                    Spacer()
                 }
                 .textCase(.uppercase)
                 .font(.finalsButtonEmphasis(40))
