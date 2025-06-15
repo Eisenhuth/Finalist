@@ -1,47 +1,43 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selectedSeason: Seasons = .Season6
     @State private var showingSettings = false
-    var backgroundColor: Color {
-        switch selectedSeason {
-        case .ClosedBeta1, .ClosedBeta2, .OpenBeta, .Season1, .Season3, .Season4, .Season5, .Season6:
-                .finalsRed
-        case .Season2:
-                .finalsPurple
-        }
-    }
     
     var body: some View {
-        NavigationStack{
-            ZStack{
-                Color(backgroundColor)
+        NavigationStack {
+            ZStack {
+                
+                Color.finalsRed
                     .ignoresSafeArea()
                 
-                VStack{
+                VStack(alignment: .trailing) {
+                    
                     Text("LEADERBOARDS")
                         .font(.finalsHeader(50))
                         .frame(height: 50)
                     
-                    SeasonSelection(leaderboard: $selectedSeason)
-                    switch selectedSeason {
-                    case .ClosedBeta1, .ClosedBeta2, .OpenBeta, .Season1:
-                        LeaderboardViewV1()
-                    case .Season2:
-                        LeaderboardViewV2()
-                    case .Season3:
-                        LeaderboardViewV3(archived: true, theme: .finalsDarkRed, leaderboards: [.S3_Crossplay, .S3_Worldtour])
-                    case .Season4:
-                        LeaderboardViewV3(archived: true, theme: .finalsRed, leaderboards: [.S4_Crossplay, .S4_Worldtour, .S4_Sponsor])
-                    case .Season5:
-                        LeaderboardViewV3(archived: true, theme: .finalsRed, leaderboards: [.S5_Crossplay, .S5_Worldtour, .S5_Sponsor])
-                    case .Season6:
-                        LeaderboardViewV3(archived: false, theme: .finalsRed, leaderboards: [.S6_Crossplay, .S6_Worldtour, .S6_Sponsor])
-                    }
+                    Spacer()
+                    
+                    NavigationLink(destination: { LeaderboardView(leaderboardType: .ranked) }) { Text("Ranked") }
+                    NavigationLink(destination: { LeaderboardView(leaderboardType: .sponsor) }) { Text("Sponsor") }
+                    NavigationLink(destination: { LeaderboardView(leaderboardType: .worldtour) }) { Text("World Tour") }
+                    NavigationLink(destination: { LeaderboardView(leaderboardType: .powershift) }) { Text("Power Shift") }
+                    NavigationLink(destination: { LeaderboardView(leaderboardType: .quickcash) }) { Text("Quick Cash") }
+                    NavigationLink(destination: { LeaderboardView(leaderboardType: .tdm) }) { Text("Team Deathmatch")}
+                    NavigationLink(destination: { LeaderboardView(leaderboardType: .terminalattack) }) { Text("Terminal Attack") }
+                    
+                    Spacer()
+                    
+                    NavigationLink(destination: { SettingsView() }) { Text("Settings") }
+
+                    Spacer()
                 }
+                .textCase(.uppercase)
+                .font(.finalsButtonEmphasis(40))
+                .foregroundStyle(.finalsWhite)
             }
-            .foregroundStyle(.finalsWhite)
         }
+        .tint(.finalsWhite)
     }
 }
 
