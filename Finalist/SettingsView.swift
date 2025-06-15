@@ -27,6 +27,14 @@ struct SettingsView: View {
 
                 }
                 .listRowBackground(Color.finalsWhite.opacity(0.1))
+                
+                Section("Source") {
+                    Button(action: {
+                        UIApplication.shared.open(URL(string: "https://github.com/Eisenhuth/Finalist")!)
+                    }, label: {
+                        Label { Text("Eisenhuth/Finalist") } icon: { Image("github-mark-white").resizable().scaledToFit() }
+                    })
+                }
             }
             .tint(.finalsRed)
             .foregroundStyle(.finalsWhite)
