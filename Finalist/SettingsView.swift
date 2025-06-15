@@ -18,6 +18,7 @@ struct SettingsView: View {
                 .autocorrectionDisabled()
                 .tint(.finalsWhite)
                 .listRowBackground(Color.finalsWhite.opacity(0.1))
+                .listRowSeparatorTint(.secondary)
                 
                 Section("Preview") {
                     PlayerName(name: highlightName, clubTag: highlightClub)
@@ -27,6 +28,7 @@ struct SettingsView: View {
 
                 }
                 .listRowBackground(Color.finalsWhite.opacity(0.1))
+                .listRowSeparatorTint(.secondary)
                 
                 Section("Source") {
                     Button(action: {

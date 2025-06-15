@@ -2,7 +2,7 @@ import SwiftUI
 
 struct PlayerName: View {
     @AppStorage("highlightName") private var highlightName: String = "Oscar#1234"
-    @AppStorage("highlightClub") private var highlightClub: String = "EMBRK"
+    @AppStorage("highlightClub") private var highlightClub: String = "OSPUZ"
     
     var name: String
     var clubTag: String?
