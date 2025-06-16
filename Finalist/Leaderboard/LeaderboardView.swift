@@ -52,6 +52,7 @@ struct LeaderboardView: View {
                             showDialogue: $showDialogue,
                             selectedEntry: $selectedEntry
                         )
+                        .refreshable { loadLeaderboard() }
                     }
                 }
                 .font(.finalsBody(16))
