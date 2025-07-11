@@ -22,7 +22,7 @@ struct PlayerName: View {
                         .clipShape(RoundedRectangle(cornerRadius: 2))
                         .overlay(
                             RoundedRectangle(cornerRadius: 2)
-                                .stroke(Color.gray.opacity(0.4), lineWidth: 1)
+                                .stroke(clubTag == highlightClub ? .finalsYellow.opacity(0.8) : Color.gray.opacity(0.4), lineWidth: 1)
                         )
                         .foregroundStyle(clubTag == highlightClub ? .finalsYellow : .finalsWhite)
                 } else {
