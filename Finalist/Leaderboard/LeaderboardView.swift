@@ -4,8 +4,6 @@ import Ospuze
 struct LeaderboardView: View {
     @State private var leaderboard: Leaderboard?
     @State private var searchText = ""
-    @State private var showDialogue = false
-    @State private var selectedEntry: LeaderboardEntry?
     @State private var selection: Leaderboards.identifiers = .S6_Crossplay
     
     var archived: Bool { correspondingArchive(selection) != nil }
@@ -49,44 +47,14 @@ struct LeaderboardView: View {
                             leaderboardType: leaderboardType,
                             leaderboard: leaderboard,
                             searchText: searchText,
-                            showDialogue: $showDialogue,
-                            selectedEntry: $selectedEntry
                         )
+                        .refreshable { loadLeaderboard() }
                     }
                 }
                 .font(.finalsBody(16))
             }
         }
-        .confirmationDialog("Linked Accounts", isPresented: $showDialogue, titleVisibility: .visible) {
-            if let selectedEntry = selectedEntry {
-                
-                Group {
-                    Button("Embark: \(selectedEntry.name)") {
-                        UIPasteboard.general.string = selectedEntry.name
-                    }
-                    
-                    if !selectedEntry.steamName.isEmpty {
-                        Button("Steam: \(selectedEntry.steamName)") {
-                            UIPasteboard.general.string = selectedEntry.steamName
-                        }
-                    }
-                    
-                    if !selectedEntry.psnName.isEmpty {
-                        Button("PSN: \(selectedEntry.psnName)") {
-                            UIPasteboard.general.string = selectedEntry.psnName
-                        }
-                    }
-                    
-                    if !selectedEntry.xboxName.isEmpty {
-                        Button("Xbox: \(selectedEntry.xboxName)") {
-                            UIPasteboard.general.string = selectedEntry.xboxName
-                        }
-                    }
-                }
-            }
-        } message: {
-            Text("select a name to copy it to the clipboard")
-        }
+        
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 SeasonPicker(selection: $selection, leaderboardType: leaderboardType)
@@ -141,11 +109,11 @@ struct LeaderboardRow: View {
             case .ranked:
                 LeagueBadge(league: entry.league ?? "Diamond 1", rankScore: entry.rankScore)
             case .worldtour:
-                Text("$\(entry.cashouts?.formatted() ?? "")")
+                Text("$\(entry.cashouts?.formatted() ?? "")").monospacedDigit()
             case .sponsor:
-                Text(entry.fans?.formatted() ?? "")
+                Text(entry.fans?.formatted() ?? "").monospacedDigit()
             case .powershift, .quickcash, .tdm, .terminalattack:
-                Text(entry.points?.formatted() ?? "")
+                Text(entry.points?.formatted() ?? "").monospacedDigit()
             }
             
         }
@@ -183,8 +151,8 @@ struct LeaderboardRows: View {
     var leaderboard: Leaderboard?
     var searchText: String
     
-    @Binding var showDialogue: Bool
-    @Binding var selectedEntry: LeaderboardEntry?
+    @State private  var showDialogue: Bool = false
+    @State private var selectedEntry: LeaderboardEntry?
     
     var body: some View {
         ScrollView{
@@ -207,6 +175,36 @@ struct LeaderboardRows: View {
                     
                 }
             })
+            .confirmationDialog("Linked Accounts", isPresented: $showDialogue, titleVisibility: .visible) {
+                if let selectedEntry = selectedEntry {
+                    
+                    Group {
+                        Button("Embark: \(selectedEntry.name)") {
+                            UIPasteboard.general.string = selectedEntry.name
+                        }
+                        
+                        if !selectedEntry.steamName.isEmpty {
+                            Button("Steam: \(selectedEntry.steamName)") {
+                                UIPasteboard.general.string = selectedEntry.steamName
+                            }
+                        }
+                        
+                        if !selectedEntry.psnName.isEmpty {
+                            Button("PSN: \(selectedEntry.psnName)") {
+                                UIPasteboard.general.string = selectedEntry.psnName
+                            }
+                        }
+                        
+                        if !selectedEntry.xboxName.isEmpty {
+                            Button("Xbox: \(selectedEntry.xboxName)") {
+                                UIPasteboard.general.string = selectedEntry.xboxName
+                            }
+                        }
+                    }
+                }
+            } message: {
+                Text("select a name to copy it to the clipboard")
+            }
         }
     }
 }

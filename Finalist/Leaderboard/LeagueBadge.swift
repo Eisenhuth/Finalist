@@ -8,10 +8,10 @@ struct LeagueBadge: View {
         HStack {
             Image(league)
                 .resizable()
-                .frame(width: 30, height: 30)
-            if let rankScore { Text(rankScore.formatted()).font(.finalsBody()) }
+                .frame(width: 20, height: 20)
+            if let rankScore { Text(rankScore.formatted()).monospacedDigit() }
         }
-        .frame(height: 25)
+        .frame(height: 16)
     }
 }
 

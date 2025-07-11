@@ -33,6 +33,7 @@ struct SearchBar: View {
                 .padding(.horizontal, 10)
                 .onTapGesture { self.isEditing = true }
                 .font(.finalsBody())
+                .autocorrectionDisabled()
             
             if isEditing {
                 Button(action: {
