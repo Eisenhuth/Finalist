@@ -36,13 +36,21 @@ func correspondingArchive(_ selection: Leaderboards.identifiers) -> Leaderboards
     case .S6_Quickcash:         .S6_Quickcash
     case .S6_TerminalAttack:    .S6_TerminalAttack
     
-    case .S7_Crossplay:         nil
-    case .S7_Worldtour:         nil
-    case .S7_Sponsor:           nil
-    case .S7_PowerShift:        nil
-    case .S7_TDM:               nil
-    case .S7_Quickcash:         nil
-    case .S7_TerminalAttack:    nil
+    case .S7_Crossplay:         .S7_Crossplay
+    case .S7_Worldtour:         .S7_Worldtour
+    case .S7_Sponsor:           .S7_Sponsor
+    case .S7_PowerShift:        .S7_PowerShift
+    case .S7_TDM:               .S7_TDM
+    case .S7_Quickcash:         .S7_Quickcash
+    case .S7_TerminalAttack:    .S7_TDM
+        
+    case .S8_Crossplay:         nil
+    case .S8_Worldtour:         nil
+    case .S8_Sponsor:           nil
+    case .S8_PowerShift:        nil
+    case .S8_TDM:               nil
+    case .S8_Quickcash:         nil
+    case .S8_Head2Head:         nil
     }
 }
 
@@ -66,6 +74,8 @@ func getSeasonFromIdentifier(_ identifier: Leaderboards.identifiers) -> String {
         "Season 6"
     case .S7_Crossplay, .S7_Worldtour, .S7_Sponsor, .S7_PowerShift, .S7_TDM, .S7_Quickcash, .S7_TerminalAttack:
         "Season 7"
+    case .S8_Crossplay, .S8_Worldtour, .S8_Sponsor, .S8_PowerShift, .S8_TDM, .S8_Quickcash, .S8_Head2Head:
+        "Season 8"
     }
 }
 
@@ -73,18 +83,20 @@ func getLeaderboardsByType(_ leaderboardType: LeaderboardType) -> [Leaderboards.
     return switch leaderboardType {
         
     case .ranked:
-        [.S1_Crossplay, .S2_Crossplay, .S3_Crossplay, .S4_Crossplay, .S5_Crossplay, .S6_Crossplay, .S7_Crossplay]
+        [.S1_Crossplay, .S2_Crossplay, .S3_Crossplay, .S4_Crossplay, .S5_Crossplay, .S6_Crossplay, .S7_Crossplay, .S8_Crossplay]
     case .worldtour:
-        [.S3_Worldtour, .S4_Worldtour, .S5_Worldtour, .S6_Worldtour, .S7_Worldtour]
+        [.S3_Worldtour, .S4_Worldtour, .S5_Worldtour, .S6_Worldtour, .S7_Worldtour, .S8_Worldtour]
     case .sponsor:
-        [.S4_Sponsor, .S5_Sponsor, .S6_Sponsor, .S7_Sponsor]
+        [.S4_Sponsor, .S5_Sponsor, .S6_Sponsor, .S7_Sponsor, .S8_Sponsor]
     case .powershift:
-        [.S6_PowerShift, .S7_PowerShift]
+        [.S6_PowerShift, .S7_PowerShift, .S8_PowerShift]
     case .quickcash:
-        [.S6_Quickcash, .S7_Quickcash]
+        [.S6_Quickcash, .S7_Quickcash, .S8_Quickcash]
     case .tdm:
-        [.S6_TDM, .S7_TDM]
+        [.S6_TDM, .S7_TDM, .S8_TDM]
     case .terminalattack:
         [.S6_TerminalAttack, .S7_TerminalAttack]
+    case .head2head:
+        [.S8_Head2Head]
     }
 }

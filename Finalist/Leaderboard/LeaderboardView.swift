@@ -112,7 +112,7 @@ struct LeaderboardRow: View {
                 Text("$\(entry.cashouts?.formatted() ?? "")").monospacedDigit()
             case .sponsor:
                 Text(entry.fans?.formatted() ?? "").monospacedDigit()
-            case .powershift, .quickcash, .tdm, .terminalattack:
+            case .powershift, .quickcash, .tdm, .terminalattack, .head2head:
                 Text(entry.points?.formatted() ?? "").monospacedDigit()
             }
             
@@ -135,7 +135,7 @@ struct LeaderboardHeader: View {
                     Text("League")
                 case .worldtour: Text("Cashouts")
                 case .sponsor: Text("Fans")
-                case .powershift, .quickcash, .tdm, .terminalattack:
+                case .powershift, .quickcash, .tdm, .terminalattack, .head2head:
                     Text("Points")
                 }
                 

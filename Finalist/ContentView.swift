@@ -18,13 +18,14 @@ struct ContentView: View {
                     
                     Spacer()
                     
-                    NavigationLink(destination: { LeaderboardView(leaderboardType: .ranked) }) { Text("Ranked") }
-                    NavigationLink(destination: { LeaderboardView(leaderboardType: .sponsor) }) { Text("Sponsor") }
-                    NavigationLink(destination: { LeaderboardView(leaderboardType: .worldtour) }) { Text("World Tour") }
-                    NavigationLink(destination: { LeaderboardView(leaderboardType: .powershift) }) { Text("Power Shift") }
-                    NavigationLink(destination: { LeaderboardView(leaderboardType: .quickcash) }) { Text("Quick Cash") }
-                    NavigationLink(destination: { LeaderboardView(leaderboardType: .tdm) }) { Text("Team Deathmatch")}
-                    NavigationLink(destination: { LeaderboardView(leaderboardType: .terminalattack) }) { Text("Terminal Attack") }
+                    NavigationLink(destination: { LeaderboardView(leaderboardType: .ranked) }) { Text(LeaderboardType.ranked.rawValue) }
+                    NavigationLink(destination: { LeaderboardView(leaderboardType: .sponsor) }) { Text(LeaderboardType.sponsor.rawValue) }
+                    NavigationLink(destination: { LeaderboardView(leaderboardType: .worldtour) }) { Text(LeaderboardType.worldtour.rawValue) }
+                    NavigationLink(destination: { LeaderboardView(leaderboardType: .powershift) }) { Text(LeaderboardType.powershift.rawValue) }
+                    NavigationLink(destination: { LeaderboardView(leaderboardType: .quickcash) }) { Text(LeaderboardType.quickcash.rawValue) }
+                    NavigationLink(destination: { LeaderboardView(leaderboardType: .tdm) }) { Text(LeaderboardType.tdm.rawValue)}
+                    NavigationLink(destination: { LeaderboardView(leaderboardType: .head2head) }) { Text(LeaderboardType.head2head.rawValue) }
+                    NavigationLink(destination: { LeaderboardView(leaderboardType: .terminalattack) }) { Text(LeaderboardType.terminalattack.rawValue) }
                     
                     Spacer()
                     
