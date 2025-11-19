@@ -111,7 +111,7 @@ struct LeaderboardRow: View {
             case .worldtour:
                 Text("$\(entry.cashouts?.formatted() ?? "")").monospacedDigit()
             case .sponsor:
-                Text(entry.fans?.formatted() ?? "").monospacedDigit()
+                SponsorBadge(sponsor: entry.sponsor ?? "Ospuze", fans: entry.fans ?? 0)
             case .powershift, .quickcash, .tdm, .terminalattack, .head2head:
                 Text(entry.points?.formatted() ?? "").monospacedDigit()
             }
@@ -178,27 +178,25 @@ struct LeaderboardRows: View {
             .confirmationDialog("Linked Accounts", isPresented: $showDialogue, titleVisibility: .visible) {
                 if let selectedEntry = selectedEntry {
                     
-                    Group {
-                        Button("Embark: \(selectedEntry.name)") {
-                            UIPasteboard.general.string = selectedEntry.name
+                    Button("Embark: \(selectedEntry.name)") {
+                        UIPasteboard.general.string = selectedEntry.name
+                    }
+                    
+                    if !selectedEntry.steamName.isEmpty {
+                        Button("Steam: \(selectedEntry.steamName)") {
+                            UIPasteboard.general.string = selectedEntry.steamName
                         }
-                        
-                        if !selectedEntry.steamName.isEmpty {
-                            Button("Steam: \(selectedEntry.steamName)") {
-                                UIPasteboard.general.string = selectedEntry.steamName
-                            }
+                    }
+                    
+                    if !selectedEntry.psnName.isEmpty {
+                        Button("PSN: \(selectedEntry.psnName)") {
+                            UIPasteboard.general.string = selectedEntry.psnName
                         }
-                        
-                        if !selectedEntry.psnName.isEmpty {
-                            Button("PSN: \(selectedEntry.psnName)") {
-                                UIPasteboard.general.string = selectedEntry.psnName
-                            }
-                        }
-                        
-                        if !selectedEntry.xboxName.isEmpty {
-                            Button("Xbox: \(selectedEntry.xboxName)") {
-                                UIPasteboard.general.string = selectedEntry.xboxName
-                            }
+                    }
+                    
+                    if !selectedEntry.xboxName.isEmpty {
+                        Button("Xbox: \(selectedEntry.xboxName)") {
+                            UIPasteboard.general.string = selectedEntry.xboxName
                         }
                     }
                 }
