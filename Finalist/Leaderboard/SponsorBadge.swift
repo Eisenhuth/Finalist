@@ -26,7 +26,7 @@ struct SponsorBadge: View {
 
 func sponsorBackgroundColor(for sponsor: String) -> Color {
     switch sponsor {
-    case "alfa acta", "dissun", "cns", "holtow", "ospuze", "iseul-t", "engimo", "trentila":
+    case "alfa acta", "dissun", "cns", "holtow", "ospuze", "iseul-t", "engimo", "trentila", "volpe":
         Color.black
     case "vaiiya":
         Color.white
@@ -37,7 +37,7 @@ func sponsorBackgroundColor(for sponsor: String) -> Color {
 
 #Preview {
     
-    let sponsors = ["ospuze", "iseul-t", "holtow", "cns", "vaiiya", "engimo", "dissun", "alfa acta", "trentila"]
+    let sponsors = ["ospuze", "iseul-t", "holtow", "cns", "vaiiya", "engimo", "dissun", "alfa acta", "trentila", "volpe"]
     
     ZStack {
      

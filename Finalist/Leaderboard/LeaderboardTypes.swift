@@ -9,4 +9,5 @@ enum LeaderboardType: String, CaseIterable {
     case tdm = "Team Deathmatch"
     case terminalattack = "Terminal Attack"
     case head2head = "Head2Head"
+    case pointbreak = "Point Break"
 }
