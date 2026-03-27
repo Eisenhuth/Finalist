@@ -43,16 +43,11 @@ struct PlayerName: View {
 }
 
 #Preview {
-    ZStack {
-        Color.finalsRed
-            .ignoresSafeArea()
-        
         VStack {
             PlayerName(name: "Oscar#1234", clubTag: "ABCDE")
             PlayerName(name: "Matt#1234", clubTag: "EMBRK")
             PlayerName(name: "Peter#1234", clubTag: "")
             PlayerName(name: "Oscar#1234", clubTag: "ABC")
         }
-    }
-
+        .finalsStyling()
 }

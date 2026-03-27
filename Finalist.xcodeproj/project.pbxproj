@@ -32,6 +32,7 @@
 		0B609AF72B3BFAE000EE92A2 /* Ospuze in Frameworks */ = {isa = PBXBuildFile; productRef = 0B609AF62B3BFAE000EE92A2 /* Ospuze */; };
 		0B609AFA2B3BFB1400EE92A2 /* Ospuze in Frameworks */ = {isa = PBXBuildFile; productRef = 0B609AF92B3BFB1400EE92A2 /* Ospuze */; };
 		0B64D0572D8CEB7400C8858B /* Ospuze in Frameworks */ = {isa = PBXBuildFile; productRef = 0B64D0562D8CEB7400C8858B /* Ospuze */; };
+		0B9712922F75C353004C2022 /* FinalsStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9712912F75C353004C2022 /* FinalsStyling.swift */; };
 		0BC04A182DE51761001D7324 /* Ospuze in Frameworks */ = {isa = PBXBuildFile; productRef = 0BC04A172DE51761001D7324 /* Ospuze */; };
 		0BC95ECB2E7474800070CA16 /* SponsorBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC95ECA2E7474800070CA16 /* SponsorBadge.swift */; };
 		0BDA0E092DFD05DC00895CD6 /* OspuzeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDA0E082DFD05DC00895CD6 /* OspuzeUtils.swift */; };
@@ -61,6 +62,7 @@
 		0B1B5C1F2B2E528900223B56 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		0B429E852DFF20BF008FF80B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0B5EDE412C1F527100697548 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
+		0B9712912F75C353004C2022 /* FinalsStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalsStyling.swift; sourceTree = "<group>"; };
 		0BC95ECA2E7474800070CA16 /* SponsorBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorBadge.swift; sourceTree = "<group>"; };
 		0BDA0E082DFD05DC00895CD6 /* OspuzeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OspuzeUtils.swift; sourceTree = "<group>"; };
 		0BDA0E0C2DFD07EE00895CD6 /* LeaderboardTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardTypes.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				0B1B5BF12B2C7A4B00223B56 /* ContentView.swift */,
 				0B429E852DFF20BF008FF80B /* SettingsView.swift */,
 				0B1B5BEF2B2C7A4B00223B56 /* FinalistApp.swift */,
+				0B9712912F75C353004C2022 /* FinalsStyling.swift */,
 				0B1B5C232B2F2A7100223B56 /* Leaderboard */,
 				0B1B5BF32B2C7A4C00223B56 /* Assets.xcassets */,
 				0B1B5C052B2C857C00223B56 /* Fonts */,
@@ -258,6 +261,7 @@
 				0B1B5C112B2D15A200223B56 /* FontExtension.swift in Sources */,
 				0BDA0E092DFD05DC00895CD6 /* OspuzeUtils.swift in Sources */,
 				0BDA0E0D2DFD07EE00895CD6 /* LeaderboardTypes.swift in Sources */,
+				0B9712922F75C353004C2022 /* FinalsStyling.swift in Sources */,
 				0B1B5C202B2E528900223B56 /* SearchBar.swift in Sources */,
 				0BDA0E162DFDCD6F00895CD6 /* LeagueBadge.swift in Sources */,
 				0BDA0E122DFD21BE00895CD6 /* SeasonPicker.swift in Sources */,
@@ -418,7 +422,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.9.0;
+				MARKETING_VERSION = 1.10.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eisenhuth.Finalist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -449,7 +453,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.9.0;
+				MARKETING_VERSION = 1.10.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eisenhuth.Finalist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -487,7 +491,7 @@
 			repositoryURL = "https://github.com/Eisenhuth/Ospuze";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
+				minimumVersion = 10.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

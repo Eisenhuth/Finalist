@@ -5,10 +5,7 @@ struct SettingsView: View {
     @AppStorage("highlightClub") private var highlightClub: String = "OSPUZ"
     
     var body: some View {
-        ZStack {
-            Color.finalsRed
-                .ignoresSafeArea()
-            
+        
             Form {
                 Section("Highlight Name & Club Tag") {
                     TextField("Player Name", text: $highlightName, prompt: Text("Name"))
@@ -16,28 +13,32 @@ struct SettingsView: View {
                         .textInputAutocapitalization(.characters)
                 }
                 .autocorrectionDisabled()
-                .tint(.finalsWhite)
-                .listRowBackground(Color.finalsWhite.opacity(0.1))
-                .listRowSeparatorTint(.secondary)
+                .finalsSectionStyling()
                 
                 Section("Preview") {
                     PlayerName(name: highlightName, clubTag: highlightClub)
                     PlayerName(name: "Oscar#1234", clubTag: "EMBRK")
                     PlayerName(name: "Scotty#5678", clubTag: "OSPUZ")
                     PlayerName(name: "June#9012", clubTag: "")
-
                 }
-                .listRowBackground(Color.finalsWhite.opacity(0.1))
-                .listRowSeparatorTint(.secondary)
+                .finalsSectionStyling()
                 
                 Section("Source") {
                     Button(action: {
                         UIApplication.shared.open(URL(string: "https://github.com/Eisenhuth/Finalist")!)
                     }, label: {
-                        Label { Text("Eisenhuth/Finalist") } icon: { Image("github-mark-white").resizable().scaledToFit() }
+                        Label {
+                            Text("Eisenhuth/Finalist")
+                                .textCase(.none)
+                        } icon: {
+                            Image("github-mark-white")
+                                .resizable()
+                                .scaledToFit()
+                        }
                     })
                 }
             }
+            .finalsStyling()
             .tint(.finalsRed)
             .foregroundStyle(.finalsWhite)
             .scrollContentBackground(.hidden)
@@ -49,7 +50,7 @@ struct SettingsView: View {
                         .frame(height: 50)
                 }
             }
-        }
+        
     }
 }
 

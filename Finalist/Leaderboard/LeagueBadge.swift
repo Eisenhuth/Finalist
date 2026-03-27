@@ -17,4 +17,5 @@ struct LeagueBadge: View {
 
 #Preview {
     LeagueBadge(league: "Diamond 1", rankScore: 90_000)
+        .finalsStyling()
 }

@@ -3,6 +3,7 @@ import SwiftUI
 struct SearchBar: View {
     @Binding var searchText: String
     @State private var isEditing = false
+    @FocusState private var isFocused: Bool
     
     var body: some View {
         HStack {
@@ -12,34 +13,34 @@ struct SearchBar: View {
                 .padding(.horizontal, 25)
                 .background(.finalsWhite)
                 .cornerRadius(8)
-                .overlay(
-                    HStack {
-                        Image(systemName: "magnifyingglass")
-                            .foregroundColor(.gray)
-                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                            .padding(.leading, 8)
-                        
-                        if isEditing {
-                            Button(action: {
-                                self.searchText = ""
-                            }) {
-                                Image(systemName: "multiply.circle.fill")
-                                    .foregroundColor(.gray)
-                                    .padding(.trailing, 8)
-                            }
+                .overlay(alignment: .leading) {
+                    Image(systemName: "magnifyingglass")
+                        .foregroundColor(.gray)
+                        .padding(.leading, 8)
+                        .allowsHitTesting(false)
+                }
+                .overlay(alignment: .trailing) {
+                    if isEditing && !searchText.isEmpty {
+                        Button(action: { self.searchText = "" }) {
+                            Image(systemName: "multiply.circle.fill")
+                                .foregroundColor(.gray)
+                                .padding(.trailing, 8)
                         }
                     }
-                )
+                }
                 .padding(.horizontal, 10)
-                .onTapGesture { self.isEditing = true }
                 .font(.finalsBody())
                 .autocorrectionDisabled()
+                .focused($isFocused)
+                .onChange(of: isFocused) {
+                    self.isEditing = isFocused
+                }
             
             if isEditing {
                 Button(action: {
                     self.isEditing = false
                     self.searchText = ""
-                    dismissKeyboard()
+                    self.isFocused = false
                 }) {
                     Text("Cancel")
                         .font(.finalsButtonEmphasis())
@@ -51,6 +52,8 @@ struct SearchBar: View {
                 .backgroundStyle(.finalsWhite)
             }
         }
+        .tint(.finalsRed)
+        .foregroundStyle(.finalsRed)
     }
     
     func dismissKeyboard(){
@@ -59,9 +62,6 @@ struct SearchBar: View {
 }
 
 #Preview {
-    ZStack{
-        Color.finalsRed
-        SearchBar(searchText: .constant(""))
-            .foregroundColor(.accent)
-    }
+    SearchBar(searchText: .constant(""))
+        .finalsStyling()
 }

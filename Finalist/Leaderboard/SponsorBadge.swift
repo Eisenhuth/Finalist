@@ -39,16 +39,12 @@ func sponsorBackgroundColor(for sponsor: String) -> Color {
     
     let sponsors = ["ospuze", "iseul-t", "holtow", "cns", "vaiiya", "engimo", "dissun", "alfa acta", "trentila", "volpe"]
     
-    ZStack {
-     
-        Color.finalsRed
-            .ignoresSafeArea(.all)
-        
-        VStack {
-            ForEach(sponsors, id: \.self) {
-                SponsorBadge(sponsor: $0, fans: .random(in: 10_000...99_000))
-            }
+    
+    VStack {
+        ForEach(sponsors, id: \.self) {
+            SponsorBadge(sponsor: $0, fans: .random(in: 10_000...99_000))
         }
     }
     .preferredColorScheme(.dark)
+    .finalsStyling()
 }
