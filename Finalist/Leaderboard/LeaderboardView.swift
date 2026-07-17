@@ -11,40 +11,43 @@ struct LeaderboardView: View {
     
     var body: some View {
         
-        VStack{
-            
-            Text(leaderboardType.rawValue)
-                .font(.finalsHeader(50))
-                .frame(height: 50)
-            
-            SearchBar(searchText: $searchText)
-            
-            GeometryReader{gr in
-                let columns = [
-                    
-                    GridItem(.fixed(gr.size.width * 0.20)), //Rank
-                    GridItem(.fixed(gr.size.width * 0.45)), //Name
-                    GridItem(.fixed(gr.size.width * 0.30))  //League, Cashouts, Points etc.
-                ]
+        ZStack(alignment: .bottom) {
+            VStack{
                 
-                VStack{
-                    LeaderboardHeader(columns: columns, leaderboardType: leaderboardType)
+                Text(leaderboardType.rawValue)
+                    .font(.finalsHeader(50))
+                    .frame(height: 50)
+                
+                SearchBar(searchText: $searchText)
+                
+                GeometryReader{gr in
+                    let columns = [
+                        
+                        GridItem(.fixed(gr.size.width * 0.20)), //Rank
+                        GridItem(.fixed(gr.size.width * 0.45)), //Name
+                        GridItem(.fixed(gr.size.width * 0.30))  //League, Cashouts, Points etc.
+                    ]
                     
-                    Divider()
-                        .frame(minHeight: 3)
-                        .overlay(.finalsWhite)
-                        .padding(.horizontal)
-                    
-                    LeaderboardRows(
-                        columns: columns,
-                        leaderboardType: leaderboardType,
-                        leaderboard: leaderboard,
-                        searchText: searchText,
-                    )
-                    .refreshable { loadLeaderboard() }
+                    VStack{
+                        LeaderboardHeader(columns: columns, leaderboardType: leaderboardType)
+                        
+                        Divider()
+                            .frame(minHeight: 3)
+                            .overlay(.finalsWhite)
+                            .padding(.horizontal)
+                        
+                        LeaderboardRows(
+                            columns: columns,
+                            leaderboardType: leaderboardType,
+                            leaderboard: leaderboard,
+                            searchText: searchText,
+                        )
+                        .refreshable { loadLeaderboard() }
+                    }
                 }
+                .font(.finalsBody(16))
             }
-            .font(.finalsBody(16))
+            LeaderboardHighlight(leaderboard: leaderboard, leaderboardType: leaderboardType)
         }
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
@@ -82,6 +85,48 @@ struct LeaderboardView: View {
     NavigationStack {
         LeaderboardView()
     }
+    .preferredColorScheme(.dark)
+}
+
+struct LeaderboardHighlight: View {
+    @AppStorage("highlightName") private var highlightName: String = "Oscar#1234"
+    var leaderboard: Leaderboard?
+    var leaderboardType: LeaderboardType
+    
+    var body: some View {
+        if let match = leaderboard?.entries.first(where: { $0.name == highlightName }) {
+            HStack {
+                Spacer()
+                Text(match.rank.description).monospacedDigit()
+                    .padding(.trailing)
+                PlayerName(name: match.name, clubTag: match.clubTag)
+                LeaderboardScore(leaderboardType: leaderboardType, entry: match)
+                    .padding(.trailing)
+                Spacer()
+            }
+            .modifier(HighlightModifier())
+        }
+    }
+}
+
+struct HighlightModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        if #available(iOS 26, *) {
+            content
+                .padding(5)
+                .glassEffect(.regular)
+                .padding()
+        } else {
+            content
+                .padding(5)
+                .background(.ultraThinMaterial)
+                .clipShape(.capsule)
+                .padding()
+                .shadow(radius: 5)
+        }
+        
+
+    }
 }
 
 struct LeaderboardRow: View {
@@ -95,16 +140,7 @@ struct LeaderboardRow: View {
             
             PlayerName(name: entry.name, clubTag: entry.clubTag)
             
-            switch leaderboardType {
-            case .ranked:
-                LeagueBadge(league: entry.league ?? "Diamond 1", rankScore: entry.rankScore)
-            case .worldtour:
-                Text("$\(entry.cashouts?.formatted() ?? "")").monospacedDigit()
-            case .sponsor:
-                SponsorBadge(sponsor: entry.sponsor ?? "Ospuze", fans: entry.fans ?? 0)
-            case .powershift, .quickcash, .tdm, .terminalattack, .head2head, .pointbreak:
-                Text(entry.points?.formatted() ?? "").monospacedDigit()
-            }
+            LeaderboardScore(leaderboardType: leaderboardType, entry: entry)
             
         }
     }
@@ -193,6 +229,24 @@ struct LeaderboardRows: View {
             } message: {
                 Text("select a name to copy it to the clipboard")
             }
+        }
+    }
+}
+
+struct LeaderboardScore: View {
+    var leaderboardType: LeaderboardType
+    var entry: LeaderboardEntry
+    
+    var body: some View {
+        switch leaderboardType {
+        case .ranked:
+            LeagueBadge(league: entry.league ?? "Diamond 1", rankScore: entry.rankScore)
+        case .worldtour:
+            Text("$\(entry.cashouts?.formatted() ?? "")").monospacedDigit()
+        case .sponsor:
+            SponsorBadge(sponsor: entry.sponsor ?? "Ospuze", fans: entry.fans ?? 0)
+        case .powershift, .quickcash, .tdm, .terminalattack, .head2head, .pointbreak:
+            Text(entry.points?.formatted() ?? "").monospacedDigit()
         }
     }
 }
