@@ -104,6 +104,7 @@ struct LeaderboardHighlight: View {
                     .padding(.trailing)
                 Spacer()
             }
+            .font(.finalsBody(16))
             .modifier(HighlightModifier())
         }
     }
