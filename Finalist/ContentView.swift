@@ -20,15 +20,15 @@ struct ContentView: View {
                 NavigationLink(destination: { LeaderboardView(leaderboardType: .powershift) }) { Text(LeaderboardType.powershift.rawValue) }
                 NavigationLink(destination: { LeaderboardView(leaderboardType: .quickcash) }) { Text(LeaderboardType.quickcash.rawValue) }
                 NavigationLink(destination: { LeaderboardView(leaderboardType: .tdm) }) { Text(LeaderboardType.tdm.rawValue)}
-                NavigationLink(destination: { LeaderboardView(leaderboardType: .head2head) }) { Text(LeaderboardType.head2head.rawValue) }
                 NavigationLink(destination: { LeaderboardView(leaderboardType: .pointbreak) }) { Text(LeaderboardType.pointbreak.rawValue) }
+                NavigationLink(destination: { LeaderboardView(leaderboardType: .soloshowdown) }) { Text(LeaderboardType.soloshowdown.rawValue) }
+                NavigationLink(destination: { LeaderboardView(leaderboardType: .head2head) }) { Text(LeaderboardType.head2head.rawValue) }
+                
                 NavigationLink(destination: { LeaderboardView(leaderboardType: .terminalattack) }) { Text(LeaderboardType.terminalattack.rawValue) }
                 
                 Spacer()
                 
-                NavigationLink(destination: { SettingsView() }) { Text("Settings") }
-                
-                Spacer()
+                NavigationLink(destination: { SettingsView() }) { Text("Settings") }                
             }
             .finalsStyling()
             .font(.finalsButtonEmphasis(40))

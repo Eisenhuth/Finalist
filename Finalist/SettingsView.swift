@@ -23,19 +23,14 @@ struct SettingsView: View {
                 }
                 .finalsSectionStyling()
                 
-                Section("Source") {
+                Section("Source / Data") {
                     Button(action: {
                         UIApplication.shared.open(URL(string: "https://github.com/Eisenhuth/Finalist")!)
-                    }, label: {
-                        Label {
-                            Text("Eisenhuth/Finalist")
-                                .textCase(.none)
-                        } icon: {
-                            Image("github-mark-white")
-                                .resizable()
-                                .scaledToFit()
-                        }
-                    })
+                    }, label: { GitHubLabel(text: "Eisenhuth/Finalist") })
+                    
+                    Button(action: {
+                        UIApplication.shared.open(URL(string: "https://github.com/leonlarsson/the-finals-api")!)
+                    }, label: { GitHubLabel(text: "leonlarsson/the-finals-api") })
                 }
             }
             .finalsStyling()
@@ -51,6 +46,21 @@ struct SettingsView: View {
                 }
             }
         
+    }
+}
+
+struct GitHubLabel: View {
+    var text: String
+    
+    var body: some View {
+        Label {
+            Text(text)
+                .textCase(.none)
+        } icon: {
+            Image("github-mark-white")
+                .resizable()
+                .scaledToFit()
+        }
     }
 }
 

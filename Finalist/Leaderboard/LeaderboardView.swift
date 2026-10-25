@@ -162,7 +162,7 @@ struct LeaderboardHeader: View {
                     Text("League")
                 case .worldtour: Text("Cashouts")
                 case .sponsor: Text("Fans")
-                case .powershift, .quickcash, .tdm, .terminalattack, .head2head, .pointbreak:
+                case .powershift, .quickcash, .tdm, .terminalattack, .head2head, .pointbreak, .soloshowdown:
                     Text("Points")
                 }
                 
@@ -246,7 +246,7 @@ struct LeaderboardScore: View {
             Text("$\(entry.cashouts?.formatted() ?? "")").monospacedDigit()
         case .sponsor:
             SponsorBadge(sponsor: entry.sponsor ?? "Ospuze", fans: entry.fans ?? 0)
-        case .powershift, .quickcash, .tdm, .terminalattack, .head2head, .pointbreak:
+        case .powershift, .quickcash, .tdm, .terminalattack, .head2head, .pointbreak, .soloshowdown:
             Text(entry.points?.formatted() ?? "").monospacedDigit()
         }
     }
